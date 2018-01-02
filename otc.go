@@ -40,7 +40,7 @@ func GetJobEndpoint(endpoint string) string {
 	return endpoint[0:n+8]
 }
 
-func WaitForJobSuccess(client *gophercloud.ServiceClient, uri string, secs int) error {
+func WaitForJobSuccess(client *ServiceClient1, uri string, secs int) error {
 	return gophercloud.WaitFor(secs, func() (bool, error) {
 		job := new(JobStatus)
 		_, err := client.Get(GetJobEndpoint(client.Endpoint) + uri, &job, nil)
@@ -61,7 +61,7 @@ func WaitForJobSuccess(client *gophercloud.ServiceClient, uri string, secs int) 
 	})
 }
 
-func GetJobEntity(client *gophercloud.ServiceClient, uri string, label string) (interface{}, error) {
+func GetJobEntity(client *ServiceClient1, uri string, label string) (interface{}, error) {
 	job := new(JobStatus)
 	_, err := client.Get(GetJobEndpoint(client.Endpoint) + uri, &job, nil)
 	if err != nil {

@@ -1,0 +1,13 @@
+package private_zones
+
+import (
+
+	"github.com/gophercloud/gophercloud/openstack/dns/v2/zones"
+//	"github.com/gophercloud/gophercloud/pagination"
+)
+
+// Zone represents a DNS zone.
+type Zone1 struct {
+	*zones.Zone
+        ZoneType string `json:"zone_type"`
+}
